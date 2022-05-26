@@ -36,7 +36,7 @@ jobs:
 
       - name: Gather Repo
         run: |
-          git clone "https://${{ secrets.GH_TOK }}@github.com/username/repo" pro || exit 1
+          git clone "https://${{ secrets.GH_TOK }}@github.com/itzharshit/save" pro || exit 1
 
       - name: Install dependancies
         run: |
