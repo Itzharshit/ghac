@@ -39,17 +39,17 @@ jobs:
           git clone "https://${{ secrets.GH_TOK }}@github.com/itzharshit/save" pro || exit 1
 
       - name: Install dependancies
-        run: |
-          cd pro
-          pip3 install wheel
-          pip3 install -r requirements.txt
-
-      - name: Run Code
         continue-on-error: true
         timeout-minutes: 330
         run: |
           cd pro
-          python -m main
+          pip3 install wheel
+          pip3 install -r requirements.txt
+          python3 -m main
+
+      - name: Health Check
+        continue-on-error: true
+        run: |
           git clone https://github.com/${GITHUB_REPOSITORY} lupo
           cd lupo || exit 1
           echo $(( RANDOM - ( RANDOM % RANDOM ) )) > buildid.txt
